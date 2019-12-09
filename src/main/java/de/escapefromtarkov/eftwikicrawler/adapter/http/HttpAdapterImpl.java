@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-public class HttpAdapterImpl {
+public class HttpAdapterImpl implements IHttpAdapter {
 
     private static final Logger LOG = LogManager.getLogger(HttpAdapterImpl.class);
 

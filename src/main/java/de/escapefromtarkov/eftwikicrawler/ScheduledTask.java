@@ -1,8 +1,11 @@
 package de.escapefromtarkov.eftwikicrawler;
 
 import de.escapefromtarkov.eftwikicrawler.adapter.http.HttpAdapterImpl;
+import de.escapefromtarkov.eftwikicrawler.adapter.http.IHttpAdapter;
 import de.escapefromtarkov.eftwikicrawler.adapter.io.FileAdapterImpl;
+import de.escapefromtarkov.eftwikicrawler.adapter.io.IFileAdapter;
 import de.escapefromtarkov.eftwikicrawler.service.DocumentService;
+import de.escapefromtarkov.eftwikicrawler.service.IDocumentService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jsoup.nodes.Document;
@@ -34,11 +37,11 @@ public class ScheduledTask {
     @Value("${eftwikicrawler.createFiles}")
     private boolean createFiles;
 
-    private HttpAdapterImpl httpAdapter;
+    private IHttpAdapter httpAdapter;
 
-    private FileAdapterImpl fileAdapter;
+    private IFileAdapter fileAdapter;
 
-    private DocumentService documentService;
+    private IDocumentService documentService;
 
     private List<String> linkListToDo = new LinkedList<>();
     private List<String> linkListProcessed = new LinkedList<>();

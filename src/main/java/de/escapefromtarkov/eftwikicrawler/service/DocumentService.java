@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Component
-public class DocumentService {
+public class DocumentService implements IDocumentService {
 
     private static final Logger LOG = LogManager.getLogger(DocumentService.class);
 
@@ -72,7 +72,7 @@ public class DocumentService {
         }
     }
 
-    public boolean isElementPresent(Document document, String elementId) {
+    private boolean isElementPresent(Document document, String elementId) {
         Element element = document.getElementById(elementId);
         return element != null;
     }

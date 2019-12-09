@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 @Component
-public class FileAdapterImpl {
+public class FileAdapterImpl implements IFileAdapter {
 
     private static final Logger LOG = LogManager.getLogger(FileAdapterImpl.class);
 
