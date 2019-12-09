@@ -24,11 +24,14 @@ public class HttpAdapterImpl {
     @Value("${proxy.exceptions}")
     protected String proxyExceptions;
 
+    @Value("${eftwikicrawler.userAgentToUse}")
+    protected String userAgentToUse;
+
     /**
      * Fetch a web page.
      */
     public Document surf(String url) throws IOException {
-        Connection connection = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36");
+        Connection connection = Jsoup.connect(url).userAgent(userAgentToUse);
         Document document = connection.timeout(5000).ignoreHttpErrors(true).followRedirects(true).get();
         LOG.debug(String.format("Loaded page title [%s] from url [%s]", document.title(), url));
         return document;
